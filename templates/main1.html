@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+{% extends "layout1.html" %}
+{% block body %}
+<img id="img" src="static/img/3.jpg" alt=""
+     style="width:100%;position:fixed;right:0;bottom:0;min-width:100%;min-height:100%;height:auto;z-index:-100;background-size:cover"
+     xmlns="http://www.w3.org/1999/html">
+
+<div class="container col-md-6 col-md-offset-3">
+    <div class="well" style="background:#FFF8DC;margin-left:auto;margin-right:auto">
+        <ul class="nav nav-pills" style="text-align:center;font-size:30px">
+            <li class="active"><a href="#car_data" data-toggle="tab" aria-expanded="true">上传车辆视频</a></li>
+            <li class=""><a href="#car_video" data-toggle="tab" aria-expanded="false">查看车辆数据</a></li>
+            <li class=""><a href="#traffic_behavior_analysis" data-toggle="tab" aria-expanded="false">交通行为分析</a></li>
+            <li class=""><a href="#bad_traffic_behavior" data-toggle="tab" aria-expanded="false">不良交通行为</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="car_data">
+                <form action="/car_data" method="POST" enctype="multipart/form-data" autocomplete="off">
+                    <div class="form-group"><br><br>
+                        <label for="videotype" style="text-align:center;font-size:20px">选择类型: </label>
+                        <input style="text-align:center;font-size:15px" list="video_types" name="video_type" placeholder="选择上传的车辆数据类型" required>
+                        <datalist id="video_types">
+                            <option value="路测视频">
+                            <option value="无人机视频">
+                            <option value="车内视频">
+                            <option value="地感线圈">
+                        </datalist>
+                    </div>
+                    <div class="form-group" enctype=multipart/form-data>
+                        <label for="carfile" style="text-align:center;font-size:20px">上传车辆数据：</label>
+                        <br>
+                        <input type="file" name="carfile" class="btn btn-info" style="background:CornflowerBlue">
+                    </div><br>
+                    <button type=submit class="btn btn-lg" style="color:white;background-color:CornflowerBlue;border-radius:18px;padding:8px 40px;font-size:25px ">上传</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="car_video">
+                <form method = 'post' action="/car_video" enctype="multipart/form-data" autocomplete="off">
+                    <!--
+                    <div class="form-group">
+                        <br><br>
+                        <label for="car_id" style="text-align:center;font-size:20px">车俩编号 : </label>
+                        <input style="text-align:center;font-size:20px;width:25%" type="text" name="car_id" class="form-control" id="car_id">
+                     </div><br>
+                     -->
+                    <!--
+                    <div class="form-group"><br><br>
+                       <label for="videoimg" style="text-align:center;font-size:20px">选择视频: </label>
+                       <input style="text-align:center;font-size:15px" list="videoimgs" name="videoimg" placeholder="选择查看的视频" >
+                       <datalist id="videoimgs">
+                           {% for dir in dirlist %}
+                               <option value="{{ dir }}">
+                           {% endfor %}
+                       </datalist>
+                     </div><br>
+                     -->
+                    <!--
+                  <div class="form-group"><br><br>
+                    <label for="video" style="text-align:center;font-size:20px">选择视频: </label>
+                    <input style="text-align:center;font-size:15px" list="videos" name="video" placeholder="选择查看的视频" >
+                    <datalist id="videos">
+                        {% for dir in dirlist %}
+                            <option value="{{ dir }}">
+                        {% endfor %}
+                    </datalist>
+                  </div><br>
+
+                   <button type=submit class="btn btn-default" style="background:white;color:DimGray">确定</button>
+                    -->
+                    <div class="form-group" enctype=multipart/form-data>
+                        <br><br>
+                        <label for="videofile" style="text-align:center;font-size:20px">选择视频文件：</label>
+                        <br>
+                        <input type="file" name="videofile" class="btn btn-info" style="background:CornflowerBlue">
+                    </div><br>
+                    <button type=submit class="btn btn-lg" style="color:white;background-color:CornflowerBlue;border-radius:18px;padding:8px 40px;font-size:25px ">确定</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="traffic_behavior_analysis">
+                <form method = 'post' action="/traffic_behavior_analysis" enctype="multipart/form-data" autocomplete="off">
+                    <div class="form-group"><br><br>
+                        <label for="video_type" style="text-align:center;font-size:20px">选择视频类型: </label>
+                        <input style="text-align:center;font-size:15px" list="videotypes" name="video_type" placeholder="选择视频类型" required>
+                        <datalist id="videotypes">
+                            <option value="路测视频">
+                            <option value="无人机视频">
+                            <option value="车内视频">
+                            <option value="地感线圈">
+                        </datalist>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="video_num" style="text-align:center;font-size:20px">选择视频路数: </label>
+                        <input style="text-align:center;font-size:15px" list="video_nums" name="video_num" placeholder="选择视频路数" required>
+                        <datalist id="video_nums">
+                            <option value="1">
+                            <option value="2">
+                            <option value="3">
+                            <option value="4">
+                            <option value="5">
+                            <option value="6">
+                            <option value="7">
+                            <option value="8">
+                            <option value="9">
+                            <option value="10">
+                        </datalist>
+                    </div><br>
+                    <button type=submit class="btn btn-lg" style="color:white;background-color:CornflowerBlue;border-radius:20px;padding:8px 30px;font-size:20px">开始分析</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="bad_traffic_behavior">
+                <form method = 'post' action="/bad_traffic_behavior" enctype="multipart/form-data" autocomplete="off">
+                    <div class="form-group">
+                        <br><br>
+                        <label for="car_id" style="text-align:center;font-size:20px">车俩编号 : </label>
+                        <input style="text-align:center;font-size:20px;width:25%" type="text" name="car_id" class="form-control" id="car_id">
+                    </div><br>
+                    <button type=submit class="btn btn-lg" style="color:white;background-color:CornflowerBlue;border-radius:18px;padding:8px 40px;font-size:25px">查询</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container col-md-6 col-md-offset-3">
+    <h1 style="font-size:30px;text-align:center;background:CornflowerBlue;color:white">result</h1>
+</div>
+<div class="container col-md-6 col-md-offset-3">
+    <div class="well" style="background:#FFF8DC">
+
+        {% if is_success %}
+        <h2 style="text-align:center;font-size:30px;color:#6495ED">上传成功！</h2>
+        {% endif %}
+        {% if is_failed %}
+        <h2 style="text-align:center;font-size:30px;color:#6495ED">上传失败！</h2>
+        {% endif %}
+
+        <!--
+            {% if img_src %}
+                <div class="col-lg-6">
+                     <img src='{{img_src}}' class="img-rounded">
+                </div>
+            {% endif %}
+        -->
+        <!--
+        {% if img_src %}
+        <h1 style="font-size:30px;text-align:center">上传成功!</h1>
+         <div class="form-group"><br>
+                        <label for="videoimg" style="text-align:center;font-size:20px">选择视频: </label>
+                        <input style="text-align:center;font-size:15px" list="videoimgs" name="videoimg" placeholder="选择查看的视频" >
+                        <datalist id="videoimgs">
+                            {% for dir in dirlist %}
+                                <option value="{{ dir }}">
+                            {% endfor %}
+                        </datalist>
+                      </div><br>
+            <div class="container-fluid">
+            <button class="btn btn-sm btn-default" onclick="video()">立即查看</button>
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="video">
+               <div class="modal-dialog" role="document" style="width: 1600px;">
+                  <div class="modal-content" >
+                    <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                       <h4 style="text-align:center" class="modal-title">{{ video }}</h4>
+                    </div>
+                    <div class="modal-body">
+                       <div id="carousel-example-generic" class="carousel slide" style="height:900px;overflow:auto;" data-ride="carousel"　data-interval="0.00001">
+
+                         <ol class="carousel-indicators">
+
+                           {% for i in range(length) %}
+                              {% if i==0 %}
+                                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                              {% endif %}
+                              <li data-target="#carousel-example-generic" data-slide-to="{{ i }}"></li>
+                           {% endfor %}
+
+                         </ol>
+        　　　　　　　　　　　　　　　　　
+                         <div class="carousel-inner" role="listbox">
+                           <div class="item active" style="-webkit-transition: -webkit-transform .00001s ease-in-out;
+                                                           -o-transition: -o-transform .00001s ease-in-out;
+                                                           transition: transform .00001s ease-in-out;">
+                              <img src="http://desk.fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/02/04/ChMkJ1bKyE2IMGQKAAj7z6qSexYAALIAQABXPMACPvn547.jpg">
+                              <div class="carousel-caption">
+                              </div>
+                           </div>
+                           {% for f in img_src %}
+                           <div class="item" style="-webkit-transition: -webkit-transform .00001s ease-in-out;
+                                                    -o-transition: -o-transform .00001s ease-in-out;
+                                                    transition: transform .00001s ease-in-out;">
+                              <img src="{{ f }}" alt="...">
+                              <div class="carousel-caption">
+                              </div>
+                           </div>
+                           {% endfor %}
+                         </div>
+
+                         <a class="left carousel-control" style="
+
+                                   background-image:none;
+                                   background-repeat: repeat-x;
+                                   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);" href="#carousel-example-generic" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                         </a>
+                         <a class="right carousel-control" style="left: auto;
+                                   right: 0;
+                                   background-image:none;
+                                   background-repeat: repeat-x;
+                                   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);" href="#carousel-example-generic" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                         </a>
+                       </div>
+                    </div>
+                    <div class="modal-footer">
+                       <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                  </div>
+               </div>
+             </div>
+
+           </div>
+           <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+           <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"      crossorigin="anonymous"></script>
+           <script>
+              function video(){
+                $('#video').modal('show');
+              }
+           </script>
+        {% endif %}
+
+        -->
+    </div>
+</div>
+
+{% endblock %}
+

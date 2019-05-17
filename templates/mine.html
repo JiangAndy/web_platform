@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends "layout1.html" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<title>个人中心</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<br><br><br>
+{% block body %}
+<img id="img" src="static/img/login.jpg" alt="" style="width:100%;position:fixed;right:0;bottom:0;min-width:100%;min-height:100%;height:auto;z-index:-100;background-size:cover">
+<div class="container col-md-3 col-md-offset-5">
+    <div class="text-center">
+        <h2 style="color:white">个人资料</h2>
+    </div>
+    <table class = "table table-bordered" style="text-align:center;font-size:20px;color:white">
+        {% if username %}
+        <tr>
+            <td>用户名</td>
+            <td> {{ username }} </td>
+        </tr>
+        {% endif %}
+        {% if email %}
+        <tr>
+            <td>邮箱</td>
+            <td> {{ email }} </td>
+        </tr>
+        {% endif %}
+        {% if telephone %}
+        <tr>
+            <td>电话</td>
+            <td> {{ telephone }} </td>
+        </tr>
+        {% endif %}
+        {% if administer %}
+        <tr>
+            <td>是否为管理员</td>
+            <td> {{ administer }} </td>
+        </tr>
+        {% endif %}
+        {% if superadmin %}
+        <tr>
+            <td>是否为超级管理员</td>
+            <td> {{ superadmin }} </td>
+        </tr>
+        {% endif %}
+    </table>
+    <center>
+        <button class="btn btn-lg btn-success pull-middle" onclick="window.location.href = '/main1'">
+            返回
+        </button>
+    </center>
+</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+{% endblock %}

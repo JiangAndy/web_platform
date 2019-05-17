@@ -1,0 +1,4 @@
+begin_time:20190102134530
+location:科技路路口
+duration:3min
+

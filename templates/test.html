@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<link href="https://cdn.bootcss.com/bootstrap-table/1.13.4/bootstrap-table.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/bootstrap-table/1.13.4/bootstrap-table.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.13.4/locale/bootstrap-table-zh-CN.js"></script>
+<body>
+
+<td>
+	<center>
+		<img style=""
+		onmouseover="this.style.cursor='pointer';this.style.cursor='hand'"
+		onmouseout="this.style.cursor='default'"
+		src="static/img/000001.png"
+		onclick="javascript:showimage('./static/img/000001.png');" />
+	</center>
+</td>
+
+
+﻿		<!--放大图的imgModal-->
+        <div class="modal fade bs-example-modal-lg text-center" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
+          <div class="modal-dialog modal-lg" style="display: inline-block; width: auto;">
+            <div class="modal-content">
+             <img  id="imgInModalID"
+			 class="carousel-inner img-responsive img-rounded"
+			 onclick="closeImageViewer()"
+			 onmouseover="this.style.cursor='pointer';this.style.cursor='hand'"
+			 onmouseout="this.style.cursor='default'"
+			 />
+            </div>
+          </div>
+        </div>
+
+</body>
+<script type="text/javascript">
+	//显示大图
+   function showimage(source)
+     {
+         $("#imgModal").find("#imgInModalID").attr("src",source);
+         $("#imgModal").modal();
+     }
+	 //关闭
+	function closeImageViewer(){
+		$("#imgModal").modal('hide');
+	}
+</script>
+</html>

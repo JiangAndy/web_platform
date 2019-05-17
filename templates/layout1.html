@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<link href="https://cdn.bootcss.com/bootstrap-table/1.13.4/bootstrap-table.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/bootstrap-table/1.13.4/bootstrap-table.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.13.4/locale/bootstrap-table-zh-CN.js"></script>
+<title style="text-align:center">不良交通行为互证平台</title>
+<nav class="navbar-fixed-top navbar-inverse" role="navigation" style="background:CornflowerBlue">
+    <div class="container col-md-8 col-md-offset-2">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand nav-title" href="/main1"
+               style="
+                      font-size:40px;
+                      font-weight:bold;
+                      color:white">不良交通行为互证平台</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/main1" class="cative" style="color:white;font-size:20px"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                <li><a href="/about" class="cative" style="color:white;font-size:20px"><span class="glyphicon glyphicon-headphones"></span> 关于</a></li>
+                <li class="dropdown">
+                    <a href="/mine"　class="dropdown-toggle" data-toggle="dropdown" style="color:white;font-size:20px"><span class="glyphicon glyphicon-user"></span>个人中心
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/mine" style="font-size:18px">查看信息</a></li>
+                        <li><a href="/modify" style="font-size:18px">修改信息</a></li>
+                        <li><a href="/logout" style="font-size:18px">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br><br><br><br><br><br><br><br><br>
+<!--
+<div class="col-md-1 pull-left">
+    <span>
+        <div style="position:fixed;width:580px;height:auto;">
+        <a href="/about/">
+            <img id="img1" class="img-responsive" src="static/img/000001.png" alt="" style="width:580px;height:auto;position:fixed;left:0;">
+        </a><br><br><br><br><br><br><br><br><br>
+        <span style="font-size:40px;color:white;position:absolute;left:0;right:0">技术支持</span>
+        </div>
+    </span>
+
+</div>
+<div class="col-md-1 pull-left" style="margin-top:350px">
+    <span>
+        <div style="position:fixed;width:580px;height:auto;">
+        <a href="/joinus">
+            <img id="img2" class="img-responsive" src="static/img/000001.png" alt="" style="width:580px;height:auto;position:fixed;left:0;">
+        </a><br><br><br><br><br><br><br><br><br>
+        <span style="font-size:40px;color:white;position:absolute;left:0;right:0">加入我们</span>
+        </div>
+    </span>
+
+</div>
+<div class="col-md-1 pull-right">
+     <span>
+        <div style="position:fixed;width:580px;height:auto;">
+        <a href="/example">
+            <img id="img3" class="img-responsive" src="static/img/000001.png" alt="" style="width:580px;height:auto;position:fixed;right:0;">
+        </a><br><br><br><br><br><br><br><br><br>
+        <span style="font-size:40px;color:white;position:absolute;left:0;right:0">案例介绍</span>
+        </div>
+    </span>
+</div>
+<div class="col-md-1 pull-right" style="margin-top:350px">
+    <span>
+        <div style="position:fixed;width:580px;height:auto;">
+        <a href="/bug">
+            <img id="img4" class="img-responsive" src="static/img/000001.png" alt="" style="width:580px;height:auto;position:fixed;right:0;">
+        </a><br><br><br><br><br><br><br><br><br>
+        <span style="font-size:40px;color:white;position:absolute;left:0;right:0">报错投诉</span>
+        </div>
+    </span>
+
+</div>
+-->
+<body>{% block body %}{% endblock %}</body>
+<style type="text/css">
+    .gcs-footer{
+    width:100%;
+    height:70px;
+    text-align:center;
+    color:white;
+    position:absolute;
+    }
+    .gcs-footer .footer-top{
+    margin-top:20px;
+    }
+    .gcs-footer a{
+    color:#f0f1f1;
+    text-decoration:none;
+    padding:0 10px;
+    vertical-align:middle;
+    }
+    .gcs-footer a:hover{
+    color:red;
+    text-decoration:underline;
+    }
+    .gcs-footer p{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align:center;
+    font-size:10px;
+    color:#D3D3D3"
+    }
+</style>
+<footer style="position:absolute; bottom:0;left:0;right:0; text-align:center;font-size:10px;color:#D3D3D3">
+    <div class="gcs-footer">
+        <div class="footer-top">
+            <a href="/about/" style="font-size:15px;color:white">技术支持</a> |
+            <a href="/joinus" style="font-size:15px;color:white">加入我们</a> |
+            <a href="/example" style="font-size:15px;color:white">案例介绍</a> |
+            <a href="/bug" style="font-size:15px;color:white">投诉报错</a>
+        </div>
+    <p>
+        ©Copyright 2018-2019 中交第一公路勘察设计研究院有限公司所有｜备案号｜All Rights Reserved.
+    </p>
+    </div>
+</footer>
+
+<!--
+<footer style="position:absolute; bottom:0;left:0;right:0; padding-bottom:12px;text-align:center;">
+
+    <h5 class="page-header" style="margin-bottom:5px;"></h5>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3" >
+                <a href="/about/" style="font-size:15px;color:#D3D3D3">技术支持</a>
+            </div>
+
+            <div class="col-lg-3">
+                <a href="/joinus" style="font-size:15px;color:white">加入我们</a>
+            </div>
+
+            <div class="col-lg-3">
+                <a href="/example" style="font-size:15px;color:white">案例介绍</a>
+            </div>
+
+            <div class="col-lg-3">
+                <a href="/bug" style="font-size:15px;color:white">投诉报错</a>
+            </div>
+        </div>
+
+    </div>
+    <h5 class="page-header" style="margin-top:-5px;margin-bottom:10px"></h5>
+</footer>
+<footer style="position:absolute; bottom:0;left:0;right:0; text-align:center;font-size:10px;color:#D3D3D3">Copyright@ 2018-2019 中交第一公路勘察设计研究院有限公司　All Rights Reserved. </footer>
+-->
+</html>
